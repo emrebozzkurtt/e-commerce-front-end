@@ -11,6 +11,7 @@ export default function Navi() {
     //let history = useHistory()
     function handleSignOut() {
         setIsAuthanticated(false);
+        //history.push("/");
     }
 
     function handleSignIn() {
