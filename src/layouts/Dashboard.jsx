@@ -5,7 +5,7 @@ import { Grid } from 'semantic-ui-react'
 import CategoryList from '../pages/CategoryList'
 import ProductList from '../pages/ProductList'
 import ProductDetails from '../pages/ProductDetails'
-import Categories from './Categories'
+import CategoryToProductList from '../pages/CategoryToProductList'
 
 export default function Dashboard() {
     return (
@@ -19,7 +19,9 @@ export default function Dashboard() {
                     <Grid.Column width={13}>
                         <Route exact path="/" component={ProductList}/>
                         <Route exact path="/products" component={ProductList}/>
-                        <Route path="/products/1" component={ProductDetails}/>
+                        <Route exact path="/:categoryName/products" component={CategoryToProductList}/>
+                        <Route path="/products/:name" component={ProductDetails}/>
+                        <Route path="/category/products/:name" component={ProductDetails}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

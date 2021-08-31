@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react';
 import SubCategoryService from '../services/subCategoryService.js'
 export default function SubCategoryList() {
-
-    let { catName } = useParams();
 
     const [subcategories, setSubcategories] = useState([])
 

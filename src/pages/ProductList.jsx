@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Card, Image } from 'semantic-ui-react';
 import ProductService from '../services/productService'
 
@@ -11,7 +12,7 @@ export default function ProductList() {
         productService.getProducts()
             .then(result => setProducts(result.data.data))
             .catch(console.log("Başarısız"))
-    })
+    },[])
 
     return (
         <div>
@@ -20,10 +21,10 @@ export default function ProductList() {
                     products.map((product) => (
                         <Card key={product.id}>
                             <Card.Content>
-                                <Image
+                                <Link to={`/products/${product.productName}`}><Image
                                     size='tiny'
                                     src='https://img.icons8.com/clouds/100/000000/product.png'
-                                />
+                                /></Link>
                                 <Card.Header>{product.productName}</Card.Header>
                                 <Card.Description>{product.productHeader}</Card.Description>
                             </Card.Content>
@@ -36,7 +37,6 @@ export default function ProductList() {
                         </Card>
                     ))
                 }
-
             </Card.Group>
         </div>
     )

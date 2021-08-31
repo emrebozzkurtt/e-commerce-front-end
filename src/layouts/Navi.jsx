@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import { Dropdown, Input, Menu } from 'semantic-ui-react'
 import CartSummary from './CartSummary'
 import SignIn from './SignIn'
@@ -8,20 +9,25 @@ export default function Navi() {
 
     const [isAuthanticated, setIsAuthanticated] = useState(true)
 
-    //let history = useHistory()
+    let history = useHistory()
     function handleSignOut() {
         setIsAuthanticated(false);
-        //history.push("/");
+        history.push("/");
     }
 
     function handleSignIn() {
         setIsAuthanticated(true);
     }
 
+    let goHome = useHistory()
+    function homeButton(){
+        goHome.push("/");
+    }
+
     return (
         <div>
             <Menu size='huge'>
-                <Menu.Item name="Home"/>
+                <Menu.Item onClick={homeButton} name="Home"/>
                 <Menu.Item>
                     <Input className='icon' icon='search' placeholder='Ürün Ara...' />
                 </Menu.Item>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import CategoryService from '../services/categoryService'
-import SubCategoryList from './SubCategoryList'
 
 export default function CategoryList() {
 
@@ -12,15 +12,14 @@ export default function CategoryList() {
         categoryService.getCategories()
             .then(result => setCategories(result.data.data))
             .catch(console.log("başarısız"))
-    })
+    },[])
+
 
     return (
         <div>
             {categories.map((category) => (
                 <Menu vertical key={category.id}>
-                    <Menu.Item>{category.categoryName}
-                        <SubCategoryList></SubCategoryList>
-                    </Menu.Item>
+                    <Link to={`/${category.categoryName}`+`/products`}><Menu.Item>{category.categoryName}</Menu.Item></Link>
                 </Menu>
             ))}
         </div>
