@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { Link,useParams } from 'react-router-dom';
-import { Button, Card, CardGroup, Image } from 'semantic-ui-react';
+import { useParams } from 'react-router-dom';
+import { Card, CardGroup } from 'semantic-ui-react';
 import ProductService from '../services/productService'
 
 export default function CategoryToProductList() {
 
 
-    let categoryName = useParams()
+    let { categoryName } = useParams()
 
     const [categoryProducts, setCategoryProducts] = useState([])
-    
-        //object Object olarak geliyor ?
-    console.log("dsa "+categoryName);
 
     useEffect(() => {
         let productService = new ProductService()
         productService.getBySubCategory_Category_CategoryName(categoryName)
             .then(result => setCategoryProducts(result.data.data))
-    }, [])
+    }, [categoryName])
+
+    console.log(categoryProducts);
 
     return (
         <div>

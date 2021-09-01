@@ -19,9 +19,9 @@ export default function Dashboard() {
                     <Grid.Column width={13}>
                         <Route exact path="/" component={ProductList}/>
                         <Route exact path="/products" component={ProductList}/>
-                        <Route exact path="/:categoryName/products" component={CategoryToProductList}/>
+                        <Route path="/:categoryName" component={CategoryToProductList}/>
                         <Route path="/products/:name" component={ProductDetails}/>
-                        <Route path="/category/products/:name" component={ProductDetails}/>
+                        <Route path="/category/:name" component={ProductDetails}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

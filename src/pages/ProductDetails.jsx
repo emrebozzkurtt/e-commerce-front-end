@@ -13,7 +13,7 @@ export default function ProductDetails() {
         let productService = new ProductService()
         productService.getByProductName(name).then(result => setProduct(result.data.data))
             .catch(console.log("Başarısız"))
-    },[])
+    },[name])
 
     return (
         <div>
@@ -25,6 +25,8 @@ export default function ProductDetails() {
                         <Card.Description>{product.productBrand}</Card.Description>
                         <Card.Description>{product.productComment}</Card.Description>
                         <Card.Description>{product.unitPrice} TL</Card.Description>
+                        <Card.Description>{product?.subCategory?.subcategoryName}</Card.Description>
+                        <Card.Description>{product?.supplier?.supplierName}</Card.Description>
                     </Card.Content>
                 </Card>
         </div>
