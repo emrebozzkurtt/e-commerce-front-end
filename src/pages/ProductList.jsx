@@ -27,6 +27,7 @@ export default function ProductList() {
                                 /></Link>
                                 <Card.Header>{product.productName}</Card.Header>
                                 <Card.Description>{product.productHeader}</Card.Description>
+                                <Card.Header>{product.unitPrice} TL</Card.Header>
                             </Card.Content>
                             <Card.Content extra>
                                 <div className='ui two buttons'>

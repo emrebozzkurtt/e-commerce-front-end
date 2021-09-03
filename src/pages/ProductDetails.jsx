@@ -22,9 +22,9 @@ export default function ProductDetails() {
                         <Image src='https://img.icons8.com/clouds/200/000000/product.png'/>
                         <Card.Header>{product.productName}</Card.Header>
                         <Card.Meta>{product.productHeader}</Card.Meta>
+                        <Card.Header>{product.unitPrice} TL</Card.Header>
                         <Card.Description>{product.productBrand}</Card.Description>
                         <Card.Description>{product.productComment}</Card.Description>
-                        <Card.Description>{product.unitPrice} TL</Card.Description>
                         <Card.Description>{product?.subCategory?.subcategoryName}</Card.Description>
                         <Card.Description>{product?.supplier?.supplierName}</Card.Description>
                     </Card.Content>

@@ -6,6 +6,7 @@ import CategoryList from '../pages/CategoryList'
 import ProductList from '../pages/ProductList'
 import ProductDetails from '../pages/ProductDetails'
 import CategoryToProductList from '../pages/CategoryToProductList'
+import SubCategoryToProductList from '../pages/SubCategoryToProductList'
 
 export default function Dashboard() {
     return (
@@ -20,6 +21,7 @@ export default function Dashboard() {
                         <Route exact path="/" component={ProductList}/>
                         <Route exact path="/products" component={ProductList}/>
                         <Route path="/:categoryName" component={CategoryToProductList}/>
+                        <Route path="/:subcategoryName" component={SubCategoryToProductList}/>
                         <Route path="/products/:name" component={ProductDetails}/>
                         <Route path="/category/:name" component={ProductDetails}/>
                     </Grid.Column>
