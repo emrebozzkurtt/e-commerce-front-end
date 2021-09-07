@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react';
 import SubCategoryService from '../services/subCategoryService.js'
-export default function SubCategoryList() {
+const SubCategoryList = (props) => {
 
-    let categoryName = useParams()
+
+
+    let categoryName = props.catName
+    
+    console.log(props.catName)
+    console.log(categoryName)
 
     const [subcategories, setSubcategories] = useState([])
 
@@ -12,18 +17,19 @@ export default function SubCategoryList() {
         let subCategoryService = new SubCategoryService()
         subCategoryService.getSubCategoriesByCategory_categoryName(categoryName)
             .then(result => setSubcategories(result.data.data))
-            .catch(console.log("başarısızzz"))
+            .catch(console.log("başarısız altkategori"))
     },[categoryName])
 
     return (
         <div>
-            <Dropdown>
             {subcategories.map((subCategory) => (
-                    <Dropdown.Menu key={subCategory.id}>
+                <Dropdown.Menu key={subCategory.id}>
+                    <Link className='linkDecor' to={`/${subCategory.subcategoryName}`}>
                         <Dropdown.Item>{subCategory.subcategoryName}</Dropdown.Item>
-                    </Dropdown.Menu>
+                    </Link>
+                </Dropdown.Menu>
             ))}
-            </Dropdown>
         </div>
     )
 }
+export default SubCategoryList

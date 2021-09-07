@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { Dropdown, Input, Menu } from 'semantic-ui-react'
+import { Dropdown, Menu, Search } from 'semantic-ui-react'
 import CartSummary from './CartSummary'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
@@ -24,12 +24,13 @@ export default function Navi() {
         goHome.push("/");
     }
 
+    let value;
     return (
         <div>
             <Menu size='huge'>
                 <Menu.Item onClick={homeButton} name="Home"/>
                 <Menu.Item>
-                    <Input className='icon' icon='search' placeholder='Ürün Ara...' />
+                    <Search className='icon' icon='search' placeholder='Ürün Ara...' value={value}></Search>
                 </Menu.Item>
                 <Menu.Item className="companyName">LastLife Company</Menu.Item>
                 <Menu.Menu position='right'>

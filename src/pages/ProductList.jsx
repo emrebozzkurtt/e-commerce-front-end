@@ -16,6 +16,7 @@ export default function ProductList() {
 
     return (
         <div>
+            
             <Card.Group>
                 {
                     products.map((product) => (
@@ -27,6 +28,7 @@ export default function ProductList() {
                                 /></Link>
                                 <Card.Header>{product.productName}</Card.Header>
                                 <Card.Description>{product.productHeader}</Card.Description>
+                                <br/>
                                 <Card.Header>{product.unitPrice} TL</Card.Header>
                             </Card.Content>
                             <Card.Content extra>

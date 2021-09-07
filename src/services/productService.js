@@ -17,4 +17,11 @@ export default class ProductService{
     getBySubCategory_SubcategoryName(subcategoryName) {
         return axios.get("http://localhost:8080/api/products/getBySubCategory_SubcategoryName?subcategoryName="+subcategoryName);
     }
+
+    getAllProductSortedASC(){
+        return axios.get("http://localhost:8080/api/products/getAllProductSortedASC");
+    }
+    getAllProductSortedDESC(){
+        return axios.get("http://localhost:8080/api/products/getAllProductSortedDESC");
+    }
 }
